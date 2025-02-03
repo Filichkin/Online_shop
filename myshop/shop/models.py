@@ -40,7 +40,7 @@ class Product(models.Model):
         indexes = [
             models.Index(fields=['id', 'slug']),
             models.Index(fields=['name']),
-            models.Index(fields=['-creared']),
+            models.Index(fields=['-created']),
         ]
 
     def __str__(self):
