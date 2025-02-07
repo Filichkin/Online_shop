@@ -15,6 +15,11 @@
         {{ product.category }}
 </a> </h2>
     <p class="price">{{ product.price }} Руб</p>
+    <form action="{% url "cart:cart_add" product.id %}" method="post">
+      {{ cart_product_form }}
+      {% csrf_token %}
+      <input type="submit" value="Add to cart">
+    </form>
     {{ product.description|linebreaks }}
   </div>
 {% endblock %}
