@@ -16,12 +16,12 @@ def order_create(request):
                     order=order,
                     product=item['product'],
                     price=item['price'],
-                    quantity=item['count']
+                    count=item['quantity']
                 )
                 cart.clear()
                 return render(
                     request,
-                    'orders/order/created.html', 
+                    'orders/order/created.html',
                     {'order': order}
                 )
     else:
