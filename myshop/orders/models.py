@@ -12,8 +12,8 @@ class Order(models.Model):
         max_length=50,
         verbose_name='Фамилия'
     )
-    emal = models.EmailField(verbose_name='Почта')
-    adress = models.CharField(
+    email = models.EmailField(verbose_name='Почта')
+    address = models.CharField(
         max_length=250,
         verbose_name='Адрес'
     )
@@ -35,7 +35,7 @@ class Order(models.Model):
         )
     paid = models.BooleanField(
         default=False,
-        verbose_name='Статус платежа'
+        verbose_name='Статус оплаты'
     )
 
     class Meta:
@@ -71,7 +71,9 @@ class OrderItem(models.Model):
         decimal_places=2,
         verbose_name='Цена'
     )
-    count = models.PositiveIntegerField(default=1)
+    count = models.PositiveIntegerField(
+        default=1,
+        verbose_name='Количество')
 
     def __str__(self):
         return str(self.id)
