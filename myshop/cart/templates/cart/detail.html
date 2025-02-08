@@ -2,19 +2,19 @@
 {% load static %}
 
 {% block title %}
-  Your shopping cart
+  Ваша корзина
 {% endblock %}
 
 {% block content %}
-  <h1>Your shopping cart</h1>
+  <h1>Ваша корзина</h1>
   <table class="cart">
 <thead> <tr>
-        <th>Image</th>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Remove</th>
-        <th>Unit price</th>
-        <th>Price</th>
+        <th>Фото</th>
+        <th>Товары</th>
+        <th>Количество</th>
+        <th>Удалить</th>
+        <th>Цена за единицу</th>
+        <th>Сумма</th>
     </tr>
 </thead>
 <tbody>
@@ -35,15 +35,15 @@
             {% csrf_token %}
           </form>
         </td>
-        <td class="num">{{ item.price }} Руб</td>
-        <td class="num">{{ item.total_price }} Руб</td>
+        <td class="num">{{ item.price }} &#8381</td>
+        <td class="num">{{ item.total_price }} &#8381</td>
       </tr>
     {% endwith %}
   {% endfor %}
   <tr class="total">
-    <td>Total</td>
+    <td>Итого</td>
     <td colspan="4"></td>
-    <td class="num">{{ cart.get_total_price }} Руб</td>
+    <td class="num">{{ cart.get_total_price }} &#8381</td>
   </tr>
 </tbody>
 </table>
