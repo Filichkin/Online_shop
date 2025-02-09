@@ -17,7 +17,7 @@ def order_created(order_id):
         f'Ваш заказ успешно создан.'
         f'Идентификатор заказа: {order.id}.'
     )
-    mail_sent = sent_mail(
+    mail_sent = send_mail(
         subject,
         message,
         'admin@myshop.com',
