@@ -14,13 +14,13 @@ def order_created(order_id):
     subject = f'Заказ номер {order.id}'
     message = (
         f'Уважаемый {order.first_name},\n\n'
-        f'Ваш заказ успешно создан.'
+        f'Ваш заказ успешно создан.\n\n'
         f'Идентификатор заказа: {order.id}.'
     )
     mail_sent = send_mail(
         subject,
         message,
         'admin@myshop.com',
-        [order.mail]
+        [order.email]
     )
     return mail_sent
