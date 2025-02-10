@@ -2,7 +2,7 @@ from decimal import Decimal
 
 import stripe
 from django.conf import settings
-from django.shortcuts import get_list_or_404, redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
 from orders.models import Order
@@ -15,7 +15,7 @@ stripe.api_version = settings.STRIPE_API_VERSION
 
 def payment_process(request):
     order_id = request.session.get('order_id', None)
-    order = get_list_or_404(Order, id=order_id)
+    order = get_object_or_404(Order, id=order_id)
     if request.method == 'POST':
         success_url = request.build_absolute_uri(
             reverse('payment:completed')
