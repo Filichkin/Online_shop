@@ -19,13 +19,13 @@ def order_create(request):
                     price=item['price'],
                     count=item['quantity']
                 )
-                cart.clear()
-                # Запуск асинхронного залания.
-                order_created.delay(order.id)
-                # Задать заказ в сеансе.
-                request.session['order_id'] = order.id
+            cart.clear()
+            # Запуск асинхронного залания.
+            order_created.delay(order.id)
+            # Задать заказ в сеансе.
+            request.session['order_id'] = order.id
 
-                return redirect('payment:process')
+            return redirect('payment:process')
     else:
         form = OrderCreateForm()
     return render(

@@ -32,6 +32,7 @@ def payment_process(request):
             'line_items': []
         }
         # Добавление товаров в сеанс платежа Stripe.
+        print(order.items.all())
         for item in order.items.all():
             session_data['line_items'].append(
                 {
