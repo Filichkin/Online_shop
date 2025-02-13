@@ -4,7 +4,7 @@ from django.utils.safestring import mark_safe
 from .models import Order, OrderItem
 
 
-def order_stripe_paymen(obj):
+def order_stripe_payment(obj):
     url = obj.get_stripe_url()
     if obj.stripe_id:
         html = f'<a href="{url}" target="_blank">{obj.stripe_id}</a>'
