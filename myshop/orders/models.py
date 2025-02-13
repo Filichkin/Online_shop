@@ -37,6 +37,10 @@ class Order(models.Model):
         default=False,
         verbose_name='Статус оплаты'
     )
+    stripe_id = models.CharField(
+        max_length=250,
+        blank=True
+    )
 
     class Meta:
         ordering = ['-created']
