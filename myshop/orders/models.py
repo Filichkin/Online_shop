@@ -13,7 +13,7 @@ class Order(models.Model):
         max_length=50,
         verbose_name='Фамилия'
     )
-    email = models.EmailField(verbose_name='Почта')
+    email = models.EmailField(verbose_name='E-mail')
     address = models.CharField(
         max_length=250,
         verbose_name='Адрес'
