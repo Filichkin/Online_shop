@@ -27,9 +27,9 @@
       {% for item in order.items.all %}
       <tr class="row{% cycle "1" "2" %}">
         <td>{{ item.product.name }}</td>
-        <td class="num">${{ item.price }}</td>
+        <td class="num">{{ item.price }} &#8381</td>
         <td class="num">{{ item.count }}</td>
-        <td class="num">${{ item.get_cost }}</td>
+        <td class="num">{{ item.get_cost }} &#8381</td>
       </tr>
     {% endfor %}
     <tr class="total">
