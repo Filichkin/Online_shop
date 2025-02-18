@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
     'shop.apps.ShopConfig',
+    'coupons.apps.CouponsConfig',
     'easy_thumbnails',
 ]
 
