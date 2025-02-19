@@ -30,7 +30,7 @@
         <td>{{ product.name }}</td>
         <td>
           <form action="{% url "cart:cart_add" product.id %}" method="post">
-              {{ item.update_quantity_form.quantity }}
+              {{ item.update_quantity_form.count }}
               {{ item.update_quantity_form.override }}
               <input type="submit" value="Изменить">
               {% csrf_token %}
@@ -42,8 +42,8 @@
             {% csrf_token %}
           </form>
         </td>
-        <td class="num">{{ item.price }} &#8381</td>
-        <td class="num">{{ item.total_price }} &#8381</td>
+        <td class="num">{{ item.price|floatformat:"2g" }} &#8381</td>
+        <td class="num">{{ item.total_price|floatformat:"2g" }} &#8381</td>
       </tr>
     {% endwith %}
   {% endfor %}
@@ -51,7 +51,7 @@
     <tr class="subtotal">
       <td>Полная стоимость</td>
       <td colspan="4"></td>
-      <td class="num">{{ cart.get_total_price|floatformat:2 }} &#8381</td>
+      <td class="num">{{ cart.get_total_price|floatformat:"2g" }} &#8381</td>
     </tr>
       <tr>
         <td>
@@ -60,7 +60,7 @@
         </td>
         <td colspan="4"></td>
         <td class="num neg">
-         -{{ cart.get_discount|floatformat:2 }} &#8381
+         -{{ cart.get_discount|floatformat:"2g" }} &#8381
         </td>
       </tr>
   {% endif %}
@@ -68,7 +68,7 @@
     <td>Total</td>
     <td colspan="4"></td>
     <td class="num">
-      {{ cart.get_total_price_after_discount|floatformat:2 }} &#8381
+      {{ cart.get_total_price_after_discount|floatformat:"2g" }} &#8381
     </td>
   </tr>
 </tbody>
@@ -76,7 +76,8 @@
 <p>Применить промокод:</p>
 <form action="{% url "coupons:apply" %}" method="post">
   {{ coupon_apply_form }}
-  <input type="submit" value="Apply">
+  <br />
+  <input type="submit" value="Применить">
   {% csrf_token %}
 </form>
 <p class="text-right">

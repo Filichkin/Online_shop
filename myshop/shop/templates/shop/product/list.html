@@ -29,7 +29,7 @@
         </a>
         <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
         <br>
-        {{ product.price }} &#8381
+        {{ product.price|floatformat:"2g" }} &#8381
       </div>
     {% endfor %}
   </div>

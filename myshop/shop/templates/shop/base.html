@@ -18,7 +18,7 @@
             Ваша корзина:
             <a href="{% url "cart:cart_detail" %}">
               {{ total_items }} {{ total_items|ru_plural:"товар,товара,товаров" }},
-              {{ cart.get_total_price }} &#8381
+              {{ cart.get_total_price|floatformat:"2g" }} &#8381
               </a>
           {% elif not order %}
             Ваша корзина пуста.
