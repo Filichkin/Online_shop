@@ -1,6 +1,13 @@
+from decimal import Decimal
+
 from django.conf import settings
+from django.core.validators import (
+    MinValueValidator,
+    MaxValueValidator
+)
 from django.db import models
 
+from coupons.models import Coupon
 from shop.models import Product
 
 
@@ -41,6 +48,22 @@ class Order(models.Model):
     stripe_id = models.CharField(
         max_length=250,
         blank=True
+    )
+    coupon = models.ForeignKey(
+        Coupon,
+        related_name='orders',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        verbose_name='Промокод'
+    )
+    discount = models.IntegerField(
+        default=0,
+        validators=[
+            MinValueValidator(0),
+            MaxValueValidator(100)
+        ],
+        verbose_name='Скидка'
     )
 
     class Meta:
