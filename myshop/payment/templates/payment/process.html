@@ -27,10 +27,32 @@
           <td class="num">{{ item.get_cost }} &#8381</td>
         </tr>
     {% endfor %}
-      <tr class="total">
-        <td colspan="4">Сумма</td>
-        <td class="num">{{ order.get_total_cost }} &#8381</td>
+    {% if order.coupon %}
+      <tr class="subtotal">
+        <td>Полная стоимость</td>
+        <td colspan="3"></td>
+        <td class="num">
+        {{ order.get_total_cost_before_discount|floatformat:"2g" }}  &#8381
+        </td>
+      </tr> 
+      <tr>
+        <td>
+        "{{ order.coupon.code }}" Промокод
+        (Скидка {{ order.discount }}%)
+        </td>
+        <td colspan="3"></td>
+        <td class="num neg">
+        - {{ order.get_discount|floatformat:"2g" }} &#8381
+        </td>
       </tr>
+{% endif %}
+<tr class="total">
+    <td>Сумма</td>
+    <td colspan="3"></td>
+    <td class="num">
+      {{ order.get_total_cost|floatformat:"2g" }} &#8381
+    </td>
+</tr>
     </tbody>
   </table>
   <form action="{% url "payment:process" %}" method="post">
