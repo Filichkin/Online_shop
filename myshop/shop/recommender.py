@@ -25,3 +25,28 @@ class Recommender:
                         1,
                         with_id
                     )
+
+    def suggest_products_for(self, products, max_results=6):
+        product_ids = [product.id for product in products]
+        if len(products) == 1:
+            suggestions = REDIS.zrange(
+                self.get_product_key(product_ids[0]), 0, -1, desc=True
+            )[:max_results]
+        else:
+            flat_ids = ''.join([str(id) for id in product_ids])
+            temporary_key = f'tmp_{flat_ids}'
+            keys = [self.get_product_key(id) for id in product_ids]
+            REDIS.zunionstore(temporary_key, keys)
+            REDIS.zrem(temporary_key, *product_ids)
+            suggestions = REDIS.zrange(
+                temporary_key, 0, -1, desc=True
+            )[:max_results]
+            REDIS.delete(temporary_key)
+            suggested_products_ids = [int(id) for id in suggestions]
+            suggested_products = list(
+                Product.objects.filter(id__in=suggested_products_ids)
+            )
+            suggested_products.sort(
+                key=lambda x: suggested_products_ids.index(x.id)
+            )
+            return suggested_products
