@@ -42,14 +42,14 @@ class Recommender:
                 temporary_key, 0, -1, desc=True
             )[:max_results]
             REDIS.delete(temporary_key)
-            suggested_products_ids = [int(id) for id in suggestions]
-            suggested_products = list(
-                Product.objects.filter(id__in=suggested_products_ids)
-            )
-            suggested_products.sort(
-                key=lambda x: suggested_products_ids.index(x.id)
-            )
-            return suggested_products
+        suggested_products_ids = [int(id) for id in suggestions]
+        suggested_products = list(
+            Product.objects.filter(id__in=suggested_products_ids)
+        )
+        suggested_products.sort(
+            key=lambda x: suggested_products_ids.index(x.id)
+        )
+        return suggested_products
 
     def clear_purchases(self):
         for id in Product.objects.values_list('id', flat=True):
