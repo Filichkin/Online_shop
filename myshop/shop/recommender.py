@@ -50,3 +50,7 @@ class Recommender:
                 key=lambda x: suggested_products_ids.index(x.id)
             )
             return suggested_products
+
+    def clear_purchases(self):
+        for id in Product.objects.values_list('id', flat=True):
+            REDIS.delete(self.get_product_key(id))
