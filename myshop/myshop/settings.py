@@ -118,6 +118,9 @@ LANGUAGES = [
     ('en', 'English'),
     ('es', 'Spanish')
 ]
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 TIME_ZONE = 'Europe/Moscow'
 
