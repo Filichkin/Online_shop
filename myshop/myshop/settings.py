@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from decouple import config
+from django.utils.translation import gettext_lazy as _
 
 from .config import KEY
 
@@ -114,9 +115,9 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'ru-RU'
 
 LANGUAGES = [
-    ('ru', 'Russian')
-    ('en', 'English'),
-    ('es', 'Spanish')
+    ('ru', _('Russian')),
+    ('en', _('English')),
+    ('es', _('Spanish')),
 ]
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
