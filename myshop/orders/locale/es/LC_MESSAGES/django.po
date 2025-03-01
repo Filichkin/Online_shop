@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-01 17:58+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
+#: orders/models.py:18
+msgid "Имя"
+msgstr "Nombre"
+
+#: orders/models.py:22
+msgid "Фамилия"
+msgstr "Apellidos"
+
+#: orders/models.py:27
+msgid "Адрес"
+msgstr "Direccion"
+
+#: orders/models.py:31
+msgid "Индекс"
+msgstr "Codigo postal"
+
+#: orders/models.py:35
+msgid "Город"
+msgstr "Ciudad"
+
+#: orders/models.py:39
+msgid "Дата и время размещения"
+msgstr "Fetcha and tiempo"
+
+#: orders/models.py:43
+msgid "Дата и время обновления"
+msgstr "Fetcha and tiempo"
+
+#: orders/models.py:47
+msgid "Статус оплаты"
+msgstr "Pago"
+
+#: orders/models.py:59
+msgid "Промокод"
+msgstr "Promo codigo"
+
+#: orders/models.py:67
+msgid "Скидка"
+msgstr "Discuento"

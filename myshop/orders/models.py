@@ -6,6 +6,7 @@ from django.core.validators import (
     MaxValueValidator
 )
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from coupons.models import Coupon
 from shop.models import Product
@@ -14,36 +15,36 @@ from shop.models import Product
 class Order(models.Model):
     first_name = models.CharField(
         max_length=50,
-        verbose_name='Имя'
+        verbose_name=_('Имя')
         )
     last_name = models.CharField(
         max_length=50,
-        verbose_name='Фамилия'
+        verbose_name=_('Фамилия')
     )
     email = models.EmailField(verbose_name='E-mail')
     address = models.CharField(
         max_length=250,
-        verbose_name='Адрес'
+        verbose_name=_('Адрес')
     )
     postal_code = models.CharField(
         max_length=20,
-        verbose_name='Индекс'
+        verbose_name=_('Индекс')
     )
     city = models.CharField(
         max_length=100,
-        verbose_name='Город'
+        verbose_name=_('Город')
     )
     created = models.DateTimeField(
         auto_now_add=True,
-        verbose_name='Дата и время размещения'
+        verbose_name=_('Дата и время размещения')
     )
     updated = updated = models.DateTimeField(
         auto_now=True,
-        verbose_name='Дата и время обновления'
+        verbose_name=_('Дата и время обновления')
         )
     paid = models.BooleanField(
         default=False,
-        verbose_name='Статус оплаты'
+        verbose_name=_('Статус оплаты')
     )
     stripe_id = models.CharField(
         max_length=250,
@@ -55,7 +56,7 @@ class Order(models.Model):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        verbose_name='Промокод'
+        verbose_name=_('Промокод')
     )
     discount = models.IntegerField(
         default=0,
@@ -63,7 +64,7 @@ class Order(models.Model):
             MinValueValidator(0),
             MaxValueValidator(100)
         ],
-        verbose_name='Скидка'
+        verbose_name=_('Скидка')
     )
 
     class Meta:
