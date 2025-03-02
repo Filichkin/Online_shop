@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-28 22:26+0300\n"
+"POT-Creation-Date: 2025-03-02 21:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cart/forms.py:12
+msgid "Количество"
+msgstr ""
+
+#: coupons/forms.py:7
+msgid "Промокод:"
+msgstr ""
+
 #: myshop/settings.py:118
 msgid "Russian"
 msgstr ""
@@ -27,4 +36,16 @@ msgstr ""
 
 #: myshop/settings.py:120
 msgid "Spanish"
+msgstr ""
+
+#: shop/templates/shop/base.html:8 shop/templates/shop/base.html:14
+msgid "Магазин"
+msgstr ""
+
+#: shop/templates/shop/base.html:20
+msgid "Ваша корзина"
+msgstr ""
+
+#: shop/templates/shop/base.html:26
+msgid "Ваша корзина пуста"
 msgstr ""

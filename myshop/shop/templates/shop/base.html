@@ -1,27 +1,29 @@
-{% load static %}
+{% load i18n static %}
 {% load items_extras %}
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>{% block title %}My shop{% endblock %}</title>
+    <title>
+      {% block title %}{% translate "Магазин" %}{% endblock %}
+    </title>
     <link href="{% static "css/base.css" %}" rel="stylesheet">
   </head>
   <body>
     <div id="header">
-      <a href="/" class="logo">My shop</a>
+      <a href="/" class="logo">{% translate "Магазин" %}</a>
     </div>
     <div id="subheader">
       <div class="cart">
         {% with total_items=cart|length %}
           {% if total_items > 0 %}
-            Ваша корзина:
+          {% translate "Ваша корзина" %}:
             <a href="{% url "cart:cart_detail" %}">
               {{ total_items }} {{ total_items|ru_plural:"товар,товара,товаров" }},
               {{ cart.get_total_price|floatformat:"2g" }} &#8381
               </a>
           {% elif not order %}
-            Ваша корзина пуста.
+          {% translate "Ваша корзина пуста" %}.
           {% endif %}
         {% endwith %}
       </div>
